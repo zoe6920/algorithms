@@ -49,7 +49,6 @@ def hamCycle(graph):
     # Function call to find all
     # hamiltonian cycles
     FindHamCycle(graph, 1, path, visited)
-    print("666")
  
     if hasCycle:
         # If no Hamiltonian Cycle
@@ -75,9 +74,8 @@ def FindHamCycle(graph, pos, path, visited):
             # into the path and
             # print the path
             path.append(0)
-            print("777")
             for i in range(len(path)):
-                print(path[i], end = " ")
+                print(path[i]+1, end = " ")
             print()
  
             # Remove the source
@@ -102,7 +100,6 @@ def FindHamCycle(graph, pos, path, visited):
             # Recur to construct
             # rest of the path
             FindHamCycle(graph, pos + 1, path, visited)
-            print("888")
             # Remove current vertex
             # from path and process
             # other vertices
@@ -121,5 +118,6 @@ while i != 0 and j != 0:
     i = i - 1
     j = j - 1
     graph[i][j] = 1
+    graph[j][i] = 1
     i, j =map(int,input().split())
 hamCycle(graph)
